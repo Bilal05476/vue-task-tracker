@@ -35,44 +35,37 @@ export default {
     };
   },
   methods: {
+    //add task in server
+    // end
     addTask(task) {
       this.tasks = [...this.tasks, task];
     },
+    //delete task from server
+    // end
     deleteTask(id) {
       if (confirm("Are you sure?")) {
         this.tasks = this.tasks.filter((task) => task.id !== id);
       }
     },
+    //toggle task in server
+    // end
     toggleReminder(id) {
       this.tasks = this.tasks.map((task) =>
         task.id === id ? { ...task, reminder: !task.reminder } : task
       );
     },
+    //fetch task from server
+    async fetchTasks() {
+      const res = await fetch("http://localhost:5000/tasks");
+      const data = await res.json();
+      return data;
+    },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
   },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: "Doctor Appointment",
-        day: "March 1st at 2:30pm",
-        reminder: false,
-      },
-      {
-        id: 2,
-        text: "Train Station",
-        day: "March 3st at 10:30pm",
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: "Client appointment",
-        day: "March 2st at 8:30am",
-        reminder: true,
-      },
-    ];
+  async created() {
+    this.tasks = await this.fetchTasks();
   },
 };
 </script>
