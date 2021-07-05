@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import about from "../Views/about.vue";
+import About from "../Views/About.vue";
 
 const routes = [
   {
     path: "/about",
     name: "About",
-    component: about,
+    component: About,
   },
 ];
 
