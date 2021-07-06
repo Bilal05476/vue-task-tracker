@@ -21,8 +21,13 @@ export default {
     Tasks,
     AddTask,
   },
-  data: {
-    tasks: [],
+  props: {
+    showAddTask: Boolean,
+  },
+  data() {
+    return {
+      tasks: [],
+    };
   },
   methods: {
     //add task in server
