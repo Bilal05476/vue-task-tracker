@@ -3,8 +3,14 @@
     {
       "text": "First Task",
       "day": "12 July at 4 : 00 Pm ",
-      "reminder": true,
+      "reminder": false,
       "id": 1
+    },
+    {
+      "text": "Second Task",
+      "day": "14 July at 2:30 Pm",
+      "reminder": true,
+      "id": 2
     }
   ]
 }
